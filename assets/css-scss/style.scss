@@ -1,0 +1,109 @@
+@import 'imports/functions',
+        'imports/variables';
+
+* {
+    @include reset();
+    font-family: 'Satoshi', sans-serif;
+}
+
+body {
+    @include align(center, center, column, 2rem);
+    background-color: $black-200;
+    width: 100%;
+    height: 100vh;
+    padding: 2rem 0;
+
+    header {
+        @include align(space-between, center, row, 0);
+        background-color: $black-100;
+        width: 65%;
+        height: 25vh;
+        padding: 0 4rem 0 0;
+        border-radius: 2rem;
+
+        .head-title {
+            @include align(center, start, column, 0);
+            background-color: $blue-100;
+            width: 40%;
+            height: 100%;
+            padding: 0 0 0 4rem;
+            border-radius: 2rem 0 0 2rem;
+
+            h1 {
+                color: $black-200;
+                font-size: 1.3rem;
+                font-weight: 400;
+
+                span {
+                    font-size: 3rem;
+                    font-weight: 700;
+                    color: $black-100;
+                }
+            }
+
+            h2 {
+                color: $black-200;
+                font-size: 1.3rem;
+                font-weight: 400;
+            }
+        }
+
+        .head-search {
+            @include align(center, center, row, 1rem);
+            width: 60%;
+
+            input {
+                background-color: $black-100;
+                color: $blue-100;
+                border: .15rem solid $black-200;
+                width: 500px;
+                height: 3.5rem;
+                padding: 0 2rem;
+                font-size: 1.2rem;
+                border-radius: 1rem;
+                outline: none;
+
+                &::placeholder {
+                    color: $black-300;
+                    opacity: .3;
+                }
+            }
+
+            button {
+                @include align(center, center, row, .2rem);
+                background-color: $blue-100;
+                color: white;
+                width: 4.5rem;
+                height: 3.5rem;
+                border-radius: 1rem;
+                font-size: 1.2rem;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    main {
+        @include align(center, start, row, 1rem);
+        background-color: $black-100;
+        width: 65%;
+        height: 80vh;
+        padding: 4rem;
+        border-radius: 2rem;
+
+        .card {
+            width: 300px;
+            height: 300px;
+
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 1rem;
+            }
+        }
+    }
+}
+
+
+
