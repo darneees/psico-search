@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- importando arquivo css -->
-        <link rel="stylesheet" href="assets/css-scss/style.css" />
-        <!-- importando font -->
-        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
-        <title>Psico Search</title>
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css-scss/style.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Psico Search</title>
+  </head>
+  <body>
+    <header>
+      <article class="head-title">
+        <h1>Faça uma busca por <br><span>Psicólogas(os)</span></h1>
+        <h2>em sua cidade</h2>
+      </article>
 
-        <header>
-            <article class="head-title">
-                <h1>Faça uma busca por <br><span>Psicólogos(as)</span></h1>
-                <h2>em sua cidade</h2>
-            </article>
+      <article class="head-search">
+        <input type="text" id="endereco" placeholder="Cidade/estado, exemplo: São Paulo/SP" />
+        <button id="buscar">
+          <ion-icon name="search-sharp"></ion-icon>
+        </button>
+      </article>
+    </header>
 
-            <article class="head-search">
-                <input type="text" id="endereco" placeholder="Digite a sua cidade">
-                <button id="buscar">
-                    <ion-icon name="search-sharp"></ion-icon>
-                </button>
-            </article>
+    <main id="main">
+      <article id="resultados"></article>
+    </main>
 
-        </header>
+    <!-- Google Maps API script with callback to initMap function -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
 
-        <main>
-            <article id="resultados"></article>
-        </main>
-
-        <!-- importando arquivo js -->
-        <script src="assets/js/script.js"></script>
-        <!-- importando icones -->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </body>
+    <!-- Script para funções customizadas -->
+    <script src="assets/js/script.js"></script>
+    
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
 </html>

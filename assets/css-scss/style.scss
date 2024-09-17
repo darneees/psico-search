@@ -8,41 +8,44 @@
 
 body {
     @include align(center, center, column, 2rem);
-    background-color: $black-200;
+    background-color: $white-200;
+    background-image: url('../img/bg.webp');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     width: 100%;
     height: 100vh;
     padding: 2rem 0;
 
     header {
         @include align(space-between, center, row, 0);
-        background-color: $black-100;
+        background-color: $white-100;
         width: 65%;
-        height: 25vh;
+        min-height: 25vh;
         padding: 0 4rem 0 0;
-        border-radius: 2rem;
+        border-radius: 100rem;
 
         .head-title {
             @include align(center, start, column, 0);
             background-color: $blue-100;
             width: 40%;
             height: 100%;
-            padding: 0 0 0 4rem;
-            border-radius: 2rem 0 0 2rem;
+            padding: 0 0 0 6rem;
+            border-radius: 100rem 0 0 100rem;
 
             h1 {
-                color: $black-200;
+                color: $white-200;
                 font-size: 1.3rem;
                 font-weight: 400;
 
                 span {
                     font-size: 3rem;
                     font-weight: 700;
-                    color: $black-100;
+                    color: $white-100;
                 }
             }
 
             h2 {
-                color: $black-200;
+                color: $white-200;
                 font-size: 1.3rem;
                 font-weight: 400;
             }
@@ -53,18 +56,18 @@ body {
             width: 60%;
 
             input {
-                background-color: $black-100;
-                color: $blue-100;
-                border: .15rem solid $black-200;
+                background-color: $white-100;
+                color: $gray-300;
+                border: .15rem solid $white-200;
                 width: 500px;
                 height: 3.5rem;
                 padding: 0 2rem;
                 font-size: 1.2rem;
-                border-radius: 1rem;
+                border-radius: 1rem 0 0 1rem;
                 outline: none;
 
                 &::placeholder {
-                    color: $black-300;
+                    color: $gray-300;
                     opacity: .3;
                 }
             }
@@ -72,10 +75,10 @@ body {
             button {
                 @include align(center, center, row, .2rem);
                 background-color: $blue-100;
-                color: white;
+                color: $white-100;
                 width: 4.5rem;
                 height: 3.5rem;
-                border-radius: 1rem;
+                border-radius: 1rem 50rem 50rem 1rem;
                 font-size: 1.2rem;
                 border: none;
                 outline: none;
@@ -86,21 +89,89 @@ body {
 
     main {
         @include align(center, start, row, 1rem);
-        background-color: $black-100;
         width: 65%;
         height: 80vh;
-        padding: 4rem;
+        padding: 4rem 0;
         border-radius: 2rem;
+        overflow-y: scroll;
+        display: none;
 
-        .card {
-            width: 300px;
-            height: 300px;
+        #resultados {
+            @include align(space-evenly, start, row, 0);
+            width: 100%;
+            height: 100%;
+            flex-wrap: wrap;
+            transition: 0.5s;
 
-            img {
-                width: 100px;
-                height: 100px;
+            .card {
+                @include align(space-between, center, column, 0);
+                position: relative;
+                background-color: $white-100;
+                width: 260px;
+                height: 350px;
                 border-radius: 1rem;
+                cursor: pointer;
+    
+                img {
+                    width: 100%;
+                    height: 63%;
+                    border-radius: 1rem 1rem 0 0;
+                }
+
+                h2 {
+                    position: absolute;
+                    top: 12rem;
+                    background-color: $blue-200;
+                    color: $white-100;
+                    font-size: 1.5rem;
+                    padding: .5rem 1rem .5rem 1rem;
+                    border-radius: .5rem;
+                }
+
+                article {
+                    @include align(center, start, column, .1rem);
+                    background-color: $blue-100;
+                    width: 100%;
+                    height: 37%;
+                    border-radius: 0 0 1rem 1rem;
+                    padding: 0 0 0 2.5rem;
+    
+                    p {
+                        color: $white-100;
+                    }
+                }
+
+                ion-icon {
+                    background-color: $white-100;
+                    color: $blue-100;
+                    position: absolute;
+                    top: -1rem;
+                    right: -1rem;
+                    padding: 1.1rem;
+                    border-radius: 2rem;
+                    font-size: 1.3rem;
+                    box-shadow: $shadow;
+                }
             }
+
+            &:has(.card:hover) .card:not(:hover) {
+                opacity: .35;
+                transition: 0.5s;
+            }
+        }
+
+        &.show {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &::-webkit-scrollbar {
+            width: .5rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $blue-100;
+            border-radius: 1rem;
         }
     }
 }
